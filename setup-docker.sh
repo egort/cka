@@ -25,6 +25,14 @@ cat > /etc/docker/daemon.json <<EOF
 }
 EOF
 
+cat >> /etc/hosts << EOF
+{
+  10.168.1.1  control.internal.int control
+  10.168.1.11 worker1.internal.int worker1
+  10.168.1.12 worker2.internal.int worker2
+}
+EOF
+
 mkdir -p /etc/systemd/system/docker.service.d
 
 systemctl daemon-reload
